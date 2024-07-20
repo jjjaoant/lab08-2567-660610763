@@ -1,51 +1,31 @@
-
 import Footer from "./components/Footer";
 import Header from "./components/Header";
+import TaskInput from "./components/TaskInput";
+import Task from "./components/Task";
 
 export default function Home() {
+  const task = [
+    {id: 1, title: "Read a book", isDone:true},
+    {id: 2, title: "Take a shower", isDone:false},
+    {id: 3, title: "Sleep", isDone:false}
+  ]
+  
   return (
     // Main container
     <div className="container mx-auto">
-      {/* header section */}
-      <div>
-        <h4 className="display-4 fst-italic text-center">Todo List Mock Up</h4>
-        <p className="text-secondary text-center">
-          This lab teach you how to split react component(s)
-        </p>
-      </div>
-
+      <Header />
       {/* tasks container */}
       <div style={{ maxWidth: "400px" }} className="mx-auto">
-        {/* task input */}
-        <div className="d-flex gap-1">
-          <input
-            className="form-control"
-            placeholder="Insert a task here.."
-          ></input>
-          <button className="btn btn-primary">Add</button>
-        </div>
-        {/* task */}
-        <div className="d-flex p-3 gap-2 align-items-center border-bottom">
-          <span>Read a book</span>
-          <button className="btn btn-success">Done</button>
-          <button className="btn btn-danger">Delete</button>
-        </div>
-        {/* task */}
-        <div className="d-flex p-3 gap-2 align-items-center border-bottom">
-          <span>Take a shower</span>
-          <button className="btn btn-success">Done</button>
-          <button className="btn btn-danger">Delete</button>
-        </div>
-        {/* task */}
-        <div className="d-flex p-3 gap-2 align-items-center border-bottom">
-          <span>Sleep</span>
-          <button className="btn btn-success">Done</button>
-          <button className="btn btn-danger">Delete</button>
-        </div>
+        {/* task input*/}
+        <TaskInput />
+        {/* task detail */}
+          <Task {...task[0]} />
+          <Task {...task[1]} />
+          <Task {...task[2]} />
       </div>
 
-      {/* //footer section */}
-      <Footer name = "Thanchanok Naensin"></Footer>
+      <Footer year="2024" fullname="Thanchanok Naensin" studentId="660610763"/>
+      
     </div>
   );
 }
